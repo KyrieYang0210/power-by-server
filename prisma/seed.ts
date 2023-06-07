@@ -9,7 +9,7 @@ const roundsOfHashing = 10;
 async function main() {
   const passwordKyrie = await bcrypt.hash('123456', roundsOfHashing);
 
-  const user1 = await prisma.account.upsert({
+  const user1 = await prisma.user.upsert({
     where: { email: 'kyrie.yang@silksoftware.com' },
     update: {
       password: passwordKyrie,
