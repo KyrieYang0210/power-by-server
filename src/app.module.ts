@@ -6,6 +6,7 @@ import { AccountsModule } from './core/accounts/accounts.module';
 import { UsersModule } from './core/users/users.module';
 import { AuthModule } from './core/auth/auth.module';
 import { HttpExceptionFilter } from './filters/httpException.filter';
+import { ToolsService } from './utils/tools.service';
 import { APP_FILTER } from '@nestjs/core';
 
 @Module({
@@ -13,6 +14,7 @@ import { APP_FILTER } from '@nestjs/core';
   controllers: [AppController],
   providers: [
     AppService,
+    ToolsService,
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,
