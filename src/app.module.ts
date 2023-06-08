@@ -7,9 +7,10 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpExceptionFilter } from './filters/httpException.filter';
 import { APP_FILTER } from '@nestjs/core';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [PrismaModule, AccountsModule, UsersModule, AuthModule],
+  imports: [PrismaModule, AccountsModule, UsersModule, AuthModule, UserModule],
   controllers: [AppController],
   providers: [
     AppService,
