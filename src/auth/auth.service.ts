@@ -7,6 +7,7 @@ import { PrismaService } from './../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthEntity } from './entities/auth.entity';
 import * as bcrypt from 'bcrypt';
+import { UserEntity } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -30,6 +31,7 @@ export class AuthService {
     }
 
     // Step 3: Generate a JWT containing the user's ID and return it
+    delete user.password;
     return {
       access: this.jwtService.sign({ userId: user.id }),
       ...user,
