@@ -26,4 +26,8 @@ export class AuthService {
       ...user,
     };
   }
+
+  findUserPermission(id: number) {
+    return this.prisma.user.findUnique({ where: { id } });
+  }
 }
